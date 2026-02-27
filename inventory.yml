@@ -1,5 +1,4 @@
 all:
-  vars:
   hosts:
     node1:
     node2:
