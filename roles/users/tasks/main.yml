@@ -1,0 +1,27 @@
+---
+# tasks file for roles/ssh_users
+
+- name: création du user ingrid
+  user:
+    name: ingrid
+    shell: /bin/bash
+    groups: sudo
+    append: yes
+    password: "{{ 'ingrid' | password_hash('sha512') }}"
+  
+
+
+- name: Add ingrid user to the sudoers
+  copy:
+    dest: "/etc/sudoers.d/ingrid"
+    content: "ingrid  ALL=(ALL)  NOPASSWD: ALL"
+  
+
+
+- name: Deploy SSH Key
+  authorized_key:  
+    user: ingrid
+    key: "{{ lookup('file', '~/ssh_key_test/id_rsa_ingrid.pub') }}"
+    state: present
+ 
+

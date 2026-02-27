@@ -1,0 +1,45 @@
+---
+# tasks file for roles/nginx
+
+- name: installation de nginx et utilitaires
+  apt:
+    name: curl, nginx, python3, python3-pip 
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+
+
+- name: suppression du fichier de config de nginx
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+  - "/etc/nginx/sites-available/default"
+  - "/etc/nginx/sites-enabled/default"
+
+
+- name: fichier de configuration
+  template:
+    src: nginx.conf.j2
+    dest: "/etc/nginx/sites-available/default"
+    owner: root
+    group: root
+    mode: '0744'
+  #notify: reload_nginx
+
+
+- name: création du lien symbolique 
+  file:
+    src: "/etc/nginx/sites-available/default"
+    dest: "/etc/nginx/sites-enabled/default"
+    state: link
+
+- name: start nginx
+  systemd:
+    name: nginx
+    state: started
+
+
+- name: Flush handlers
+  meta: flush_handlers
+

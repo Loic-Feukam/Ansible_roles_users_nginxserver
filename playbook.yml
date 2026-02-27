@@ -1,0 +1,13 @@
+- name: génération local de la clée ssh
+  connection: local
+  hosts: localhost
+  roles:
+  - ssh_keygen
+
+
+- name: serveur nginx et la gestion des users
+  hosts: all
+  become: true 
+  roles:
+  - users
+  - nginx 
