@@ -17,7 +17,7 @@ Configuration des machines virtuelles à l’aide d’ansible : création d'util
       
       - Les machines du réseau Vnet2 sont administrées depuis la machine du réseau Vnet1 où est installée Ansible. 
        
-  **Repository vers l'infrastructure Cloud déployée via Terraform :**  
+  **Repository vers les infrastructures Cloud déployées via Terraform :**  
   
       - Cloud publique Microsoft Azure : https://github.com/Loic-Feukam/IaC_Azure_Terraform-
       
