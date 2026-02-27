@@ -8,7 +8,8 @@ Configuration des machines virtuelles à l’aide d’ansible : création d'util
 
     Description de l'infrastructure cloud : 
     
-      - trois machines virtuelles : une dans un sous réseau Vnet1 et les deux autres (qui sont les machines à configurer à l'aide d'Ansible) dans un réseau privé Vnet2.
+      - trois machines virtuelles : une dans un sous réseau Vnet1
+        et les deux autres (qui sont les machines à configurer à l'aide d'Ansible) dans un réseau privé Vnet2.
       
       - La machine du sous réseau Vnet1 est accéssible depuis l'extérieur en ssh. 
       
