@@ -25,7 +25,7 @@
     owner: root
     group: root
     mode: '0744'
-  #notify: reload_nginx
+  notify: reload_nginx
 
 
 - name: création du lien symbolique 
