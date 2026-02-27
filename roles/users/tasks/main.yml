@@ -7,8 +7,7 @@
     shell: /bin/bash
     groups: sudo
     append: yes
-    password: "{{ 'ingrid' | password_hash('sha512') }}"
-  
+    password: "{{ ingrid_password | password_hash('sha512') }}"
 
 
 - name: Add ingrid user to the sudoers
